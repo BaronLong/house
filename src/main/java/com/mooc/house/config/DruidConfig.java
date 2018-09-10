@@ -10,8 +10,6 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.servlet.ServletRegistration;
-
 @Configuration
 public class DruidConfig {
 
@@ -33,6 +31,7 @@ public class DruidConfig {
         return statFilter;
     }
 
+    /**添加监控（可以通过 ip:port/druid来访问druid的监控页面）*/
     @Bean
     public ServletRegistrationBean servletRegistrationBean(){
         return new ServletRegistrationBean(new StatViewServlet(),"/druid/*");
